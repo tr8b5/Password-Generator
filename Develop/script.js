@@ -25,6 +25,10 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 var criteriaArray = [];
+var lcAlphabet = ''
+var ucAlphabet = ''
+var numbers = ''
+var specialCharacters = ''
 
 // Write password to the #password input
 function writePassword() {
@@ -53,6 +57,12 @@ function writePassword() {
     //Adds user string to the array
     criteriaArray.push(passwordLowercase);
     if (passwordLowercase === "yes" || passwordLowercase === "no") {
+        //Create lowercase alphaet
+        if (passwordLowercase === "yes") {
+        lcAlphabet = 'abcdefghijklmnopqrstuvwxyx'
+        } else {
+            lcAlphabet =''
+        }
       //Ask if password should include uppercase letters
       var passwordUppercase = prompt(
         "Do you want uppercase letters in your password?"
@@ -60,11 +70,23 @@ function writePassword() {
       //Adds user string to the array
       criteriaArray.push(passwordUppercase);
       if (passwordUppercase === "yes" || passwordUppercase === "no") {
+        //Create uppercase alphaet
+        if (passwordUppercase === "yes") {
+        ucAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        } else {
+            ucAlphabet = ''
+        }
         //Ask if password should include numeric letters
         var passwordNumeric = prompt("Do you want numbers in your password?");
         //Adds user string to the array
         criteriaArray.push(passwordNumeric);
         if (passwordNumeric === "yes" || passwordNumeric === "no") {
+            //Create numbers
+            if (passwordNumeric === "yes") {
+            numbers = '0123456789'
+            } else {
+                numbers = ''
+            }
           //Ask if password should include special characters
           var passwordSpecial = prompt(
             "Do you want special characters such as @,#,$ in your password?"
@@ -72,7 +94,21 @@ function writePassword() {
           //Adds user string to the array
           criteriaArray.push(passwordSpecial);
           if (passwordSpecial === "yes" || passwordSpecial === "no") {
-              console.log(criteriaArray)
+            //Create special characters
+            if (passwordSpecial === "yes") {
+                specialCharacters = '@#$%^&*(){}[]!'
+            } else {
+                specialCharacters = ''
+            }
+            
+
+            var password = generatePassword(passwordInt);
+            var passwordText = document.querySelector("#password");
+
+            passwordText.value = password;
+
+            console.log(criteriaArray);
+            console.log(password);
           } else {
             alert("Invalid entry, please enter yes or no");
           }
@@ -89,11 +125,17 @@ function writePassword() {
     // Error
     alert("Invalid entry, please enter a length between 8 and 128 characters");
   }
+}
 
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
+function generatePassword(length) {
+  var result = "";
+  var characters =
+    lcAlphabet + ucAlphabet + numbers + specialCharacters;
+  var charactersLength = characters.length;
+  for (var i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
 }
 
 // Add event listener to generate button
