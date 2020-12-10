@@ -20,6 +20,6 @@
 
     I wanted to convert the prompt strings into lowercase values ensuring the users would be able to type in yes with capital letters, and the program would still return true, but I wasn't able to implement this in the time frame I was given. This will likely be included in a future update. 
 
-    ![Screenshot of the website] (/images/scrsht1.png)
-    ![Screenshot of the website] (/images/scrsht2.png)
-    ![Screenshot of the website] (/images/scrsht3.png)
+![Screenshot of website 1](/assets/images/scrsht1.png)
+![Screenshot of website 2](/assets/images/scrsht2.png)
+![Screenshot of website 3](/assets/images/scrsht3.png)
