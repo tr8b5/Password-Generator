@@ -24,6 +24,7 @@
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+var criteriaArray = [];
 
 // Write password to the #password input
 function writePassword() {
@@ -35,33 +36,46 @@ function writePassword() {
   var passwordLength = prompt(
     "Please enter your ideal password length from 8 to 128 characters."
   );
+  //Adds user string to the array
+  criteriaArray.push(passwordLength);
   var passwordInt = parseInt(passwordLength);
 
   // This creates a valid password length check
   if (passwordInt >= 8 && passwordInt <= 128) {
     // Prompts the next criteria
     alert(
-      "Thanks for your criteria, for the next four questions please answer yes or no"
+      "Thanks for your criteria, for the next four questions please answer yes or no. You must include at least 1 of the following criteria."
     );
     //Ask if password should include lowercase letters
     var passwordLowercase = prompt(
       "Do you want lowercase letters in your password?"
     );
+    //Adds user string to the array
+    criteriaArray.push(passwordLowercase);
     if (passwordLowercase === "yes" || passwordLowercase === "no") {
       //Ask if password should include uppercase letters
       var passwordUppercase = prompt(
         "Do you want uppercase letters in your password?"
       );
+      //Adds user string to the array
+      criteriaArray.push(passwordUppercase);
       if (passwordUppercase === "yes" || passwordUppercase === "no") {
         //Ask if password should include numeric letters
         var passwordNumeric = prompt("Do you want numbers in your password?");
+        //Adds user string to the array
+        criteriaArray.push(passwordNumeric);
         if (passwordNumeric === "yes" || passwordNumeric === "no") {
-            var passwordSpecial = prompt("Do you want special characters such as @,#,$ in your password?")
-            if (passwordSpecial === "yes" || passwordSpecial === "no") {
-
-            } else {
-                alert("Invalid entry, please enter yes or no");
-            }
+          //Ask if password should include special characters
+          var passwordSpecial = prompt(
+            "Do you want special characters such as @,#,$ in your password?"
+          );
+          //Adds user string to the array
+          criteriaArray.push(passwordSpecial);
+          if (passwordSpecial === "yes" || passwordSpecial === "no") {
+              console.log(criteriaArray)
+          } else {
+            alert("Invalid entry, please enter yes or no");
+          }
         } else {
           alert("Invalid entry, please enter yes or no");
         }
