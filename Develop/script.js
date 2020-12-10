@@ -57,6 +57,11 @@ function writePassword() {
         var passwordNumeric = prompt("Do you want numbers in your password?");
         if (passwordNumeric === "yes" || passwordNumeric === "no") {
             var passwordSpecial = prompt("Do you want special characters such as @,#,$ in your password?")
+            if (passwordSpecial === "yes" || passwordSpecial === "no") {
+
+            } else {
+                alert("Invalid entry, please enter yes or no");
+            }
         } else {
           alert("Invalid entry, please enter yes or no");
         }
