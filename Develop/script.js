@@ -43,11 +43,17 @@ function writePassword() {
     alert(
       "Thanks for your criteria, for the next four questions please answer yes or no"
     );
-    //Ask if password should include lowercase letters then converts answer to lowercase for to combat case sesitivity
+    //Ask if password should include lowercase letters
     var passwordLowercase = prompt("Do you want lowercase letters in your password?");
     if (passwordLowercase === "yes" || passwordLowercase === "no") {
+        //Ask if password should include uppercase letters
       var passwordUppercase = prompt("Do you want uppercase letters in your password?");
-      passwordNumeric("Do you want numbers in your password?");
+      //Ask if password should include numeric letters
+    if  (passwordUppercase === "yes" || passwordUppercase === "no") {
+        var passwordNumeric = prompt("Do you want numbers in your password?");
+    } else {
+        alert("Invalid entry, please enter yes or no");
+    }
       passwordSpecial(
         "Do you want special characters such as @,#,$ in your password?"
       );
