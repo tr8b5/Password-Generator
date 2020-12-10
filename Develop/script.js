@@ -22,18 +22,32 @@
 // WHEN the password is generated
 // THEN the password is either displayed in an alert or written to the page
 
-
-
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+
 // Write password to the #password input
 function writePassword() {
+  confirm(
+    "Welcome to password generator. In order to create the best possible password for you, please answer the following criteria questions."
+  );
+  // This is the password length prompt string
+  var passwordLength = prompt("Please enter your ideal password length from 8 to 128 characters.")
+  // This is the entered string converted into an interger
+  var passwordInt = parseInt(passwordLength)
+// This creates a valid password length check
+  if (passwordInt >= 8 && passwordInt <= 128) {
+      // 
+    console.log("It worked")
+  } else {
+      // Error
+      alert("Invalid entry, please enter a password length between 8 and 128 characters")
+  }
+  
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
